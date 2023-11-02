@@ -6,7 +6,9 @@
   "targets": {
     "build": {
       "executor": "@nrwl/webpack:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
@@ -16,8 +18,13 @@
         "main": "apps/catalog/src/main.tsx",
         "polyfills": "apps/catalog/src/polyfills.ts",
         "tsConfig": "apps/catalog/tsconfig.app.json",
-        "assets": ["apps/catalog/src/favicon.ico", "apps/catalog/src/assets"],
-        "styles": ["apps/catalog/src/styles.css"],
+        "assets": [
+          "apps/catalog/src/favicon.ico",
+          "apps/catalog/src/assets"
+        ],
+        "styles": [
+          "apps/catalog/src/styles.css"
+        ],
         "scripts": [],
         "webpackConfig": "@nrwl/react/plugins/webpack"
       },
@@ -49,7 +56,9 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "catalog:build",
-        "hmr": true
+        "hmr": true,
+        "port": 4200,
+        "proxyConfig": "apps/catalog/proxy.conf.json"
       },
       "configurations": {
         "development": {
@@ -63,14 +72,20 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["apps/catalog/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "apps/catalog/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/catalog"],
+      "outputs": [
+        "coverage/apps/catalog"
+      ],
       "options": {
         "jestConfig": "apps/catalog/jest.config.ts",
         "passWithNoTests": true
