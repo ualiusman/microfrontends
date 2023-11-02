@@ -1,0 +1,5 @@
+/apps/catalog @my-org/catalog-team
+/apps/checkout @my-org/checkout-team
+
+.css @cssexpert
+/tools @msadmin
