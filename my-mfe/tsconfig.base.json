@@ -17,7 +17,8 @@
     "paths": {
       "@ebuy/custom-hooks": ["libs/custom-hooks/src/index.ts"],
       "@ebuy/mocks": ["libs/mocks/src/index.ts"],
-      "@ebuy/ui": ["libs/ui/src/index.ts"]
+      "@ebuy/ui": ["libs/ui/src/index.ts"],
+      "@ebuy/utils": ["libs/utlis/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

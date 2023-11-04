@@ -1,5 +1,20 @@
 import { Button, Card, Image } from 'semantic-ui-react';
+import { useSessionStorage } from 'usehooks-ts'
+
 export function ProductCard(productData: any) {
+
+    const [basket, setBasket]: any = useSessionStorage('shoppingBasket', {});
+
+    const addItem = (id: string) => {
+        basket[id] = basket[id] ? basket[id] + 1 : 1;
+        setBasket(basket);
+    }
+
+    const removeItem = (id: string) => {
+        basket[id] = basket[id] <= 1 ? 0 : basket[id] - 1;
+        setBasket(basket);
+    }
+
     const { product } = productData;
     return (
         <Card>
@@ -12,13 +27,13 @@ export function ProductCard(productData: any) {
             </Card.Content>
             <Card.Content extra>
                 <div className="ui three buttons">
-                    <Button basic color="red">
+                    <Button basic color="red" onClick={() => removeItem(product.id)}>
                         Remove
                     </Button>
                     <Button basic color="blue">
                         {0}
                     </Button>
-                    <Button basic color="green">
+                    <Button basic color="green" onClick={() => addItem(product.id)}>
                         Add
                     </Button>
                 </div>
