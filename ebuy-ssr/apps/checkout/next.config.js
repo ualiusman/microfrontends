@@ -4,14 +4,14 @@ const NextFederationPlugin = require("@module-federation/nextjs-mf");
 const remotes = (isServer) => {
   const location = isServer ? "ssr" : "chunks";
   return {
-    catalog: `catalog@http://localhost:3001/_next/static/${location}/remoteEntry.js`,
+    checkout: `catalog@http://localhost:3002/_next/static/${location}/remoteEntry.js`,
   };
 };
 module.exports = {
   webpack(config, options) {
     config.plugins.push(
       new NextFederationPlugin({
-        name: "catalog",
+        name: "checkout",
         filename: "static/chunks/remoteEntry.js",
         exposes: {
           "./Module": "./pages/index.tsx",
